@@ -1,0 +1,18 @@
+<div class="pet-list">
+  <h2>Available Pets ({{ pets().length }})</h2>
+  
+  <div class="cards-container">
+    
+      <app-pet-card 
+      *ngFor= "let pet of pets()"
+      
+      [pet]="pet">
+
+      </app-pet-card>
+    
+  </div>
+
+  
+    <p class="empty" *ngIf="pets().length === 0">🎉 All pets have been adopted! Come back later.</p>
+  
+</div>

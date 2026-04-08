@@ -1,0 +1,24 @@
+<div *ngIf="pet() as currentPet; else notFound" class="detail-container">
+  <a routerLink="/" class="back-btn">← Back to Shop</a>
+  
+  <div class="pet-detail">
+    <img [src]="currentPet.imageUrl" [alt]="currentPet.name" class="detail-image">
+    
+    <div class="detail-info">
+      <h1>{{ currentPet.name }}</h1>
+      <p class="breed">{{ currentPet.breed }}</p>
+      <p class="type">{{ currentPet.type | titlecase }}</p>
+      <p class="price">${{ currentPet.price }}</p>
+      <p class="description">{{ currentPet.description }}</p>
+      
+      <button class="add-btn" (click)="addToCart()">
+        🛒 Add to Adoption Cart
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Define the 'else' block using ng-template -->
+<ng-template #notFound>
+  <p class="not-found">Pet not found 😢 <a routerLink="/">Back to Shop</a></p>
+</ng-template>
